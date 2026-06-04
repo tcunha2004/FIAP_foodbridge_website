@@ -1,0 +1,505 @@
+:root {
+  --background: #ffffff;
+  --green: #2d8a3e;
+  --yellow: #ffc107;
+  --light-gray: #f5f5f5;
+  --color: #333333;
+}
+
+html[data-theme="dark"] {
+  --background: #000000;
+  --color: #f5f5f5;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.dark_mode_icon {
+  cursor: pointer;
+}
+
+.dark_mode_icon:hover {
+  color: var(--yellow);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color);
+  background-color: var(--background);
+}
+
+.link-video-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--green);
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(45, 138, 62, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.link-video-container:hover {
+  background-color: #216630;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(45, 138, 62, 0.4);
+}
+
+.link-video {
+  color: var(--background);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.header {
+  background-color: var(--background);
+  border-bottom: 3px solid var(--green);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.navbar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color);
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--yellow);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--green);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+main {
+  padding: 2rem;
+}
+
+.quem-somos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.quem-somos-container {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.quem-somos-text {
+  flex: 1;
+}
+
+.quem-somos-text h2 {
+  font-size: 2.5rem;
+  color: var(--green);
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--yellow);
+  padding-left: 1rem;
+}
+
+.quem-somos-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.quem-somos-image {
+  flex: 1;
+}
+
+.quem-somos-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.proposta {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.proposta-container {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.proposta-header {
+  flex: 0 0 30%;
+}
+
+.proposta-header h2 {
+  font-size: 3.5rem;
+  color: var(--green);
+  border-left: 5px solid var(--yellow);
+  padding-left: 1rem;
+  line-height: 1.2;
+}
+
+.proposta-text {
+  flex: 1;
+}
+
+.proposta-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.parceiros {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.parceiros h2 {
+  font-size: 2.5rem;
+  color: var(--green);
+  margin-bottom: 3rem;
+}
+
+.parceiros-container {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  align-items: center;
+}
+
+.parceiro-logo {
+  flex: 0 0 300px;
+}
+
+.parceiro-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.objetivos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.objetivos h2 {
+  font-size: 2.5rem;
+  color: var(--green);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.objetivos-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.objetivo-card {
+  background-color: var(--background);
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.objetivo-card:hover {
+  box-shadow: 0 6px 16px rgba(45, 138, 62, 0.2);
+  transform: translateY(-4px);
+}
+
+.objetivo-card h3 {
+  font-size: 1.5rem;
+  color: var(--green);
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--yellow);
+  padding-bottom: 0.5rem;
+}
+
+.objetivo-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color);
+  text-align: justify;
+}
+
+.contato-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.contato-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contato-content h1 {
+  font-size: 2.5rem;
+  color: var(--green);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contato-subtitle {
+  font-size: 1.1rem;
+  color: var(--color);
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--green);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color);
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+}
+
+.btn-enviar {
+  padding: 0.75rem 2rem;
+  background-color: var(--green);
+  color: var(--background);
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-enviar:hover {
+  background-color: #216630;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 138, 62, 0.3);
+}
+
+.btn-enviar:active {
+  transform: translateY(0);
+}
+
+.mensagem-sucesso {
+  background-color: #4caf50;
+  color: var(--background);
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ultimo-contato-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.ultimo-contato-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ultimo-contato-container h2 {
+  font-size: 1.8rem;
+  color: var(--green);
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--yellow);
+  padding-left: 1rem;
+}
+
+.ultimo-contato-card {
+  background-color: var(--background);
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(45, 138, 62, 0.1);
+}
+
+.ultimo-contato-nome,
+.ultimo-contato-email,
+.ultimo-contato-data {
+  font-size: 1rem;
+  color: var(--color);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.ultimo-contato-nome span,
+.ultimo-contato-email span,
+.ultimo-contato-data span {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.ultimo-contato-mensagem {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.ultimo-contato-mensagem strong {
+  color: var(--green);
+}
+
+.ultimo-contato-mensagem p {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color);
+  text-align: justify;
+  word-break: break-word;
+}
