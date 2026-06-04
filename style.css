@@ -381,7 +381,7 @@ main {
   border-radius: 6px;
   font-size: 1rem;
   font-family: inherit;
-  color: var(--color);
+  color: #333333;
   transition: all 0.3s ease;
 }
 
