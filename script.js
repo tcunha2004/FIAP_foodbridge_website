@@ -13,6 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   darkModeIcon.addEventListener("click", updateTheme);
+  darkModeIcon.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      updateTheme();
+    }
+  });
 
   function updateTheme() {
     if (localStorage.getItem("theme") === "dark") {
@@ -22,6 +28,60 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("theme", "dark");
       document.documentElement.setAttribute("data-theme", "dark");
     }
+  }
+
+  const elementosReveal = document.querySelectorAll(
+    ".quem-somos-container, .proposta-container, .gallery-item, .parceiro-logo, .objetivo-card, .contato-container",
+  );
+  if (elementosReveal.length > 0 && "IntersectionObserver" in window) {
+    elementosReveal.forEach((el) => el.classList.add("reveal"));
+
+    const revealObserver = new IntersectionObserver(
+      function (entries, observer) {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const el = entry.target;
+          el.classList.add("is-visible");
+          el.addEventListener(
+            "animationend",
+            function () {
+              el.classList.remove("is-visible");
+              el.classList.add("reveal-done");
+            },
+            { once: true },
+          );
+          observer.unobserve(el);
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    elementosReveal.forEach((el) => revealObserver.observe(el));
+  }
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  if (menuToggle && navLinks) {
+    const menuIcon = menuToggle.querySelector(".material-symbols-outlined");
+
+    function fecharMenu() {
+      navLinks.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menu");
+      if (menuIcon) menuIcon.textContent = "menu";
+    }
+
+    menuToggle.addEventListener("click", function () {
+      const aberto = navLinks.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", String(aberto));
+      menuToggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+      if (menuIcon) menuIcon.textContent = aberto ? "close" : "menu";
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", fecharMenu);
+    });
   }
 
   const btnVoltarTopo = document.getElementById("btn-voltar-topo");

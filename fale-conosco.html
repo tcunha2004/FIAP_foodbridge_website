@@ -8,7 +8,7 @@
     <link rel="icon" href="images/logo.png" type="image/png" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,dark_mode,menu"
     />
   </head>
   <body>
@@ -21,21 +21,34 @@
         </div>
 
         <nav class="navbar">
-          <ul class="nav-links">
+          <ul class="nav-links" id="nav-links">
             <li><a href="index.html#quem-somos">Quem Somos</a></li>
             <li><a href="index.html#proposta">Nossa Proposta</a></li>
-            <li>
-              <a href="index.html#parceiros">Parceiros</a>
-            </li>
+            <li><a href="index.html#parceiros">Parceiros</a></li>
             <li><a href="index.html#objetivos">Objetivos</a></li>
             <li><a href="fale-conosco.html">Fale Conosco</a></li>
-            <li>
-              <span class="material-symbols-outlined dark_mode_icon">
-                dark_mode
-              </span>
-            </li>
           </ul>
         </nav>
+
+        <div class="header-actions">
+          <span
+            class="material-symbols-outlined dark_mode_icon"
+            role="button"
+            tabindex="0"
+            aria-label="Alternar tema"
+            title="Alternar tema"
+          >
+            dark_mode
+          </span>
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
       </div>
     </header>
 
