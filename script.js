@@ -24,6 +24,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  const btnVoltarTopo = document.getElementById("btn-voltar-topo");
+  if (btnVoltarTopo) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 300) {
+        btnVoltarTopo.classList.add("visivel");
+      } else {
+        btnVoltarTopo.classList.remove("visivel");
+      }
+    });
+
+    btnVoltarTopo.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   function validarNome(nome) {
     const partes = nome.trim().split(/\s+/);
     if (partes.length < 2) {
